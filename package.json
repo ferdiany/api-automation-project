@@ -4,7 +4,7 @@
   "description": "API automation project using mocha chai",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test_folder/testcase/*.js --reporter mochawesome"
+    "test": "mocha ./test_folder/testcase/*.js --reporter mochawesome --timeout 10000"
   },
   "keywords": [
     "api",
