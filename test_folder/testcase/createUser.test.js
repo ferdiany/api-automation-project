@@ -24,9 +24,9 @@ describe('Create User', () => {
                     location: data.detail.newLocationUser
                 }
             )
-            if(response.body.name === undefined){
+            if(response.body.name == undefined){
                 throw new Error('User already added, please change newEmailUser on datafile.js')
-            } else{
+            } else {
                 expect(response.body.name).equal(data.detail.newUsername)
                 expect(response.body.email).equal(data.detail.newEmailUser)
                 expect(response.body.location).equal(data.detail.newLocationUser)
@@ -39,7 +39,7 @@ describe('Create User', () => {
                 token,
                 {
                     name: data.detail.newUsername,
-                    email: data.detail.emailRegister,
+                    email: data.detail.emailLogin,
                     location: data.detail.newLocationUser
                 }
             )

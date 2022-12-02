@@ -1,0 +1,504 @@
+{
+  "stats": {
+    "suites": 10,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-02T04:32:50.320Z",
+    "end": "2022-12-02T04:32:53.202Z",
+    "duration": 2882,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9feb1b5e-d610-4a99-b072-e0a3dee7be7e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 246,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const login = await endpointLogin.postLogin({\n    email: data.detail.emailLogin,\n    password: data.detail.passwordLogin\n})\ntoken = `Bearer ${login.body.data.Token}`",
+          "err": {},
+          "uuid": "1604b24c-0408-43bc-9289-c66b7726311c",
+          "parentUUID": "9feb1b5e-d610-4a99-b072-e0a3dee7be7e",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 199,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const login = await endpointLogin.postLogin({\n    email: data.detail.emailLogin,\n    password: data.detail.passwordLogin\n})\ntoken = `Bearer ${login.body.data.Token}`",
+          "err": {},
+          "uuid": "3f1b5eb1-db6e-467b-b4e2-bfa6f771c319",
+          "parentUUID": "9feb1b5e-d610-4a99-b072-e0a3dee7be7e",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "928bab3c-3dcf-47ad-84dc-76bdee26b54f",
+          "title": "Create User",
+          "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/createUser.test.js",
+          "file": "/test_folder/testcase/createUser.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "f8e33f1b-3129-48a2-9481-b1e2728e239a",
+              "title": "Create User Positive Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/createUser.test.js",
+              "file": "/test_folder/testcase/createUser.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Successfully Create New User",
+                  "fullTitle": "Create User Create User Positive Scenario Successfully Create New User",
+                  "timedOut": false,
+                  "duration": 227,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointCreateUser.createUser(\n    token,\n    {\n        name: data.detail.newUsername,\n        email: data.detail.newEmailUser,\n        location: data.detail.newLocationUser\n    }\n)\nif(response.body.name == undefined){\n    throw new Error('User already added, please change newEmailUser on datafile.js')\n} else {\n    expect(response.body.name).equal(data.detail.newUsername)\n    expect(response.body.email).equal(data.detail.newEmailUser)\n    expect(response.body.location).equal(data.detail.newLocationUser)\n}",
+                  "err": {},
+                  "uuid": "c3aff542-9810-42bf-959b-e7e3927d7f80",
+                  "parentUUID": "f8e33f1b-3129-48a2-9481-b1e2728e239a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c3aff542-9810-42bf-959b-e7e3927d7f80"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 227,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "1b90412d-ffe4-4fd8-a416-3b14a4bdd977",
+              "title": "Create User Negative Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/createUser.test.js",
+              "file": "/test_folder/testcase/createUser.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Created user when user already existing",
+                  "fullTitle": "Create User Create User Negative Scenario Created user when user already existing",
+                  "timedOut": false,
+                  "duration": 235,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointCreateUser.createUser(\n    token,\n    {\n        name: data.detail.newUsername,\n        email: data.detail.emailLogin,\n        location: data.detail.newLocationUser\n    }\n)\nexpect(response.body.Message).equal(data.message.errorCreatedMessage)",
+                  "err": {},
+                  "uuid": "5d8e4b62-e9ee-41ff-861e-e6bab5de074c",
+                  "parentUUID": "1b90412d-ffe4-4fd8-a416-3b14a4bdd977",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5d8e4b62-e9ee-41ff-861e-e6bab5de074c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 235,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "26b462ea-ce97-41e2-a12e-a349d6768a82",
+          "title": "Get Users",
+          "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/getUser.test.js",
+          "file": "/test_folder/testcase/getUser.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get All Users",
+              "fullTitle": "Get Users Get All Users",
+              "timedOut": false,
+              "duration": 228,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await endpointGetUser.getAllUser(token)\nconst dataTotal = response.body.data.length\nexpect(response.body.per_page).equal(10)\nassert.strictEqual(dataTotal, response.body.per_page, data.message.messageDifferentTotal)",
+              "err": {},
+              "uuid": "34f4505d-dadd-4b15-bfeb-804e648a6a6a",
+              "parentUUID": "26b462ea-ce97-41e2-a12e-a349d6768a82",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get Spesifik User",
+              "fullTitle": "Get Users Get Spesifik User",
+              "timedOut": false,
+              "duration": 208,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await endpointGetUser.getSpesifikUser(token)\nexpect(response.body.id).equal(data.detail.idUser)",
+              "err": {},
+              "uuid": "4d917346-76b1-4686-a4fd-8775c4f75cf3",
+              "parentUUID": "26b462ea-ce97-41e2-a12e-a349d6768a82",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "34f4505d-dadd-4b15-bfeb-804e648a6a6a",
+            "4d917346-76b1-4686-a4fd-8775c4f75cf3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 436,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "92932ccf-84d0-44ba-9970-b11133144fc6",
+          "title": "Login",
+          "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/login.test.js",
+          "file": "/test_folder/testcase/login.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "89ee1bb8-e871-47c0-935b-ac3950a8be77",
+              "title": "Login Positive Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/login.test.js",
+              "file": "/test_folder/testcase/login.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "User Success Login",
+                  "fullTitle": "Login Login Positive Scenario User Success Login",
+                  "timedOut": false,
+                  "duration": 324,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointLogin.postLogin\n(\n    {\n        email: data.detail.emailLogin,\n        password: data.detail.passwordLogin\n    }\n)\nexpect(response.body.message).equal(data.message.successMessage);\nexpect(response.body.data.Email).equal(data.detail.emailLogin);",
+                  "err": {},
+                  "uuid": "a4852a8e-fea4-431a-b4ba-6787bf89260b",
+                  "parentUUID": "89ee1bb8-e871-47c0-935b-ac3950a8be77",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a4852a8e-fea4-431a-b4ba-6787bf89260b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 324,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "b5ba48a0-085d-440f-85c2-98a724bed0f3",
+              "title": "Login Negative Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/login.test.js",
+              "file": "/test_folder/testcase/login.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "User login with wrong email",
+                  "fullTitle": "Login Login Negative Scenario User login with wrong email",
+                  "timedOut": false,
+                  "duration": 210,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointLogin.postLogin\n(\n    {\n        email: data.detail.emailRegister,\n        password: data.detail.passwordLogin\n    }\n)\n\nexpect(response.body.message).equal(data.message.loginFailed)\nexpect(response.body.data).equal(null)",
+                  "err": {},
+                  "uuid": "2d25277d-2bf2-432c-8028-40cce000adae",
+                  "parentUUID": "b5ba48a0-085d-440f-85c2-98a724bed0f3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "User login with wrong password",
+                  "fullTitle": "Login Login Negative Scenario User login with wrong password",
+                  "timedOut": false,
+                  "duration": 204,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointLogin.postLogin\n(\n    {\n        email: data.detail.emailLogin,\n        password: data.detail.passwordRegister\n    }\n)\n\nexpect(response.body.message).equal(data.message.loginFailed)\nexpect(response.body.data).equal(null)",
+                  "err": {},
+                  "uuid": "6af6f5f7-1524-409c-b16b-4a93068d6d9d",
+                  "parentUUID": "b5ba48a0-085d-440f-85c2-98a724bed0f3",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2d25277d-2bf2-432c-8028-40cce000adae",
+                "6af6f5f7-1524-409c-b16b-4a93068d6d9d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 414,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "c08fd47d-46bd-41c5-b4f1-014fecc3d8bd",
+          "title": "Register",
+          "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/register.test.js",
+          "file": "/test_folder/testcase/register.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a1184c54-8a78-4bfc-a26b-6d4312ad1392",
+              "title": "Register User Positive Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/register.test.js",
+              "file": "/test_folder/testcase/register.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Success Register User",
+                  "fullTitle": "Register Register User Positive Scenario Success Register User",
+                  "timedOut": false,
+                  "duration": 215,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointRegister.postRegister(\n\t{\n\t\tname: data.detail.nameRegister,\n\t\temail: data.detail.emailRegister,\n\t\tpassword: data.detail.passwordRegister\n\t}\n)\n\t\nif (response.body.data == null) {\n\tthrow new Error(data.message.errorRegisMessage);\n} else {\n\texpect(response.status).to.equal(200);\n\texpect(response.body.message).equal(data.message.successMessage);\n}",
+                  "err": {},
+                  "uuid": "7c0d9860-e1cc-46f9-9bf4-0c9659682183",
+                  "parentUUID": "a1184c54-8a78-4bfc-a26b-6d4312ad1392",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7c0d9860-e1cc-46f9-9bf4-0c9659682183"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 215,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "738c3666-d7a2-477f-9001-aa352958b446",
+              "title": "Register User Negative Scenario",
+              "fullFile": "/home/ferdian/Documents/My Github Project/Tugas sanbercode/api-automation-project/test_folder/testcase/register.test.js",
+              "file": "/test_folder/testcase/register.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Register User with Registered Email",
+                  "fullTitle": "Register Register User Negative Scenario Register User with Registered Email",
+                  "timedOut": false,
+                  "duration": 212,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointRegister.postRegister(\n\t{\n\t\tname: data.detail.nameLogin,\n\t\temail: data.detail.emailLogin,\n\t\tpassword: data.detail.passwordLogin\n\t}\n);\nexpect(response.body.message).equal('The email address you have entered is already registered');\nexpect(response.body.data).is.null",
+                  "err": {},
+                  "uuid": "bfcb71f5-9a38-4dba-9e25-937cad64eb07",
+                  "parentUUID": "738c3666-d7a2-477f-9001-aa352958b446",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Register User with invalid Email",
+                  "fullTitle": "Register Register User Negative Scenario Register User with invalid Email",
+                  "timedOut": false,
+                  "duration": 172,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointRegister.postRegister(\n\t{\n\t\tname: data.detail.nameLogin,\n\t\temail: data.detail.invalidEmail,\n\t\tpassword: data.detail.passwordLogin\n\t}\n);\nexpect(response.body.Message).equal('The request is invalid.');",
+                  "err": {},
+                  "uuid": "ff9ba54f-ccca-4fa2-b76f-443f116a57ed",
+                  "parentUUID": "738c3666-d7a2-477f-9001-aa352958b446",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Register User with invalid password",
+                  "fullTitle": "Register Register User Negative Scenario Register User with invalid password",
+                  "timedOut": false,
+                  "duration": 185,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await endpointRegister.postRegister(\n\t{\n\t\tname: data.detail.nameLogin,\n\t\temail: data.detail.emailLogin,\n\t\tpassword: data.detail.invalidPassword\n\t}\n);\nexpect(response.body.Message).equal('The request is invalid.');",
+                  "err": {},
+                  "uuid": "b762779a-9e85-48df-af60-4fb55396dc1e",
+                  "parentUUID": "738c3666-d7a2-477f-9001-aa352958b446",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bfcb71f5-9a38-4dba-9e25-937cad64eb07",
+                "ff9ba54f-ccca-4fa2-b76f-443f116a57ed",
+                "b762779a-9e85-48df-af60-4fb55396dc1e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 569,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
